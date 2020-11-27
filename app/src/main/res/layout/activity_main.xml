@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    android:orientation="vertical"
+    android:id="@+id/drawer_layout"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="80dp"
+          app:cardBackgroundColor="@color/orange"
+          android:elevation="10dp"
+          android:id="@+id/cv"
+          app:layout_constraintTop_toTopOf="parent">
+         <androidx.constraintlayout.widget.ConstraintLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+               android:src="@drawable/menu"
+                android:id="@+id/menu"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:fontFamily="@font/aladin"
+               android:textColor="@color/white"
+               android:textSize="30sp"
+                android:text="Quiz"
+               android:id="@+id/title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/menu"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+         </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.cardview.widget.CardView>
+
+
+      <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:id="@+id/fragment"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cv">
+
+      </FrameLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+   <com.google.android.material.navigation.NavigationView
+       android:layout_width="250dp"
+       android:layout_height="match_parent"
+       android:id="@+id/navigation"
+       android:layout_gravity="start"
+       android:fitsSystemWindows="true"
+       app:headerLayout="@layout/layout"
+       app:menu="@menu/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
